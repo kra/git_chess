@@ -1,0 +1,46 @@
+# show short hashes for all versions of $file containing $string
+# this may not be in any particular order
+git log --pretty=format:%h -- $file | xargs -I HASH git grep -e $string HASH -- $file
+git log --pretty=format:%H -- $file | xargs -I HASH git grep -e $string HASH -- $file
+
+
+checked in:
+appropriate transcript up to current move
+
+not checked in:
+full pgn transcript of each game
+
+branches:
+one per game
+
+branch names:
+event/date/white/black/active/move
+
+fen:
+file: transcript.fen, fen file with halfmove clock and fullmove number
+truncated.
+For each move M:
+ For each game G:
+  If M exists for G:
+   Edit transcript.fen to reflect latest move.
+   If there is a matching transcript.fen checked in, merge from.
+    find:
+     git log --pretty=format:%h -- $file | xargs -I HASH git grep -e $string HASH -- $file
+    merge:
+
+   Check in.
+
+pgn:
+file: transcript.pgn, truncated move transcript only
+For each move M:
+ For each game G:
+  If M exists for G:
+   Edit transcript.pgn to add latest move.
+   If there is a matching transcript.pgn checked in, merge from.
+    find:
+     git log --pretty=format:%h -- $file | xargs -I HASH git grep -e $string HASH -- $file
+    merge:
+
+   Check in.
+
+

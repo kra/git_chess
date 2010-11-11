@@ -1,1 +1,7 @@
 Manage chess transcripts and board representations with version control.
+
+Libraries:
+
+Chess.py is by Will McGugan, will@willmcgugan.com, http://www.willmcgugan.com.
+No license is given in the source, but he has encouraged people to hack it.
+
